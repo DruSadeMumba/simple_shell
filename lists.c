@@ -31,7 +31,7 @@ char **_ltostr(list_t *head)
 	if (!head || !i)
 		return (NULL);
 	strs = malloc(sizeof(char *) * (i + 1));
-	if (!str)
+	if (!strs)
 		return (NULL);
 	for (i = 0; node; node = node->next, i++)
 	{
@@ -101,7 +101,7 @@ void _freelist(list_t **ptr)
 
 	if (!ptr || !*ptr)
 		return;
-	head = ptr;
+	head = *ptr;
 	node = head;
 	while (node)
 	{

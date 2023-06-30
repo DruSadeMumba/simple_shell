@@ -64,9 +64,9 @@ int _setenv(data_t *data, char *var, char *val)
 	if (!buf)
 		return (1);
 	strcpy(buf, var);
-	strcat(buf, '=');
+	strcat(buf, "=");
 	strcat(buf, val);
-	node = dat->env;
+	node = data->env;
 	while (node)
 	{
 		p = _firstchar(node->str, var);

@@ -7,7 +7,7 @@
  * @len: len
  * Return: n
  */
-ssize_t _input(data *data, char **buf, size_t *len)
+ssize_t _input(data_t *data, char **buf, size_t *len)
 {
 	ssize_t n = 0;
 	size_t lens = 0;

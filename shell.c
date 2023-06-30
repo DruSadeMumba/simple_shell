@@ -22,9 +22,9 @@ int _findbic(data_t *data)
 		{"exit", _exithandler},
 		{"env", _env},
 		{"help", _help},
-		{"history", history},
-		{"setenv", _setenv},
-		{"unsetenv", unsetenv},
+		{"history", _history},
+		{"setenv", _setsenv},
+		{"unsetenv", _unsetsenv},
 		{"cd", _cd},
 		{"alias", _alias},
 		{NULL, NULL}
@@ -132,7 +132,7 @@ int handlers(data_t *data, char **av)
 		if (mode(data))
 			_eputs("#cisfun$ ");
 		_eputchar(-1);
-		n = _getinput(dat);
+		n = _getinput(data);
 		if (n != -1)
 		{
 			_setdata(data, av);

@@ -81,6 +81,6 @@ int _envlist(data_t *data)
 
 	for (i = 0; environ[i]; i++)
 		_addendnode(&node, environ[i], 0);
-	data->env;
+	data->env = node;
 	return (0);
 }

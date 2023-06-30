@@ -22,7 +22,7 @@ int __free(void **ptr)
  */
 void _free(char **pp)
 {
-	chat **a = pp;
+	char **a = pp;
 
 	if (!pp)
 		return;

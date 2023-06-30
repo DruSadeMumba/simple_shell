@@ -5,7 +5,7 @@
 #include <fcntl.h>
 #include <limits.h>
 #include <stdio.h>
-#include <stdlin.h>
+#include <stdlib.h>
 #include <string.h>
 #include <sys/types.h>
 #include <sys/wait.h>
@@ -72,8 +72,8 @@ typedef struct shdata
 } data_t;
 
 #define DATA_INIT \
-{NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, \
-	NULL, 0, 0, 0}
+{NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
+	0, 0, 0}
 
 /**
  * struct builtincommands - builtin
@@ -99,7 +99,7 @@ int _putfd(char c, int fd);
 int _putsfd(char *str, int fd);
 int _eputchar(char);
 int _putchar(char);
-char *_firstchar(cons char *, const char *);
+char *_firstchar(const char *, const char *);
 char **strtow(char *, char *);
 void _free(char **);
 int __free(void **);
@@ -109,7 +109,7 @@ int _isdelimiter(char, char *);
 int mode(data_t *);
 void _printerr(data_t *, char *);
 int _printd(int, int);
-char *convertint(long int, int, int);
+char *_convertint(long int, int, int);
 void _comments(char *);
 int _exithandler(data_t *);
 int _cd(data_t *);
@@ -119,7 +119,7 @@ int _getline(data_t *, char **, size_t *);
 void _handler(int);
 void _cleardata(data_t *);
 void _setdata(data_t *, char **);
-void _freedata(data_t *, char int);
+void _freedata(data_t *, int);
 int _env(data_t *);
 int _envlist(data_t *);
 char *_getenv(data_t *, const char *);
@@ -127,12 +127,12 @@ int _setsenv(data_t *);
 int _unsetsenv(data_t *);
 char **_getenviron(data_t *);
 int _unsetenv(data_t *, char *);
-int _setenv(data_t *, char *);
+int _setenv(data_t *, char *, char *);
 int _history(data_t *);
 char *_gethistory(data_t *);
 int _writehistory(data_t *);
 int _readhistory(data_t *);
-int _historylist(data_t *);
+int _historylist(data_t *, char *, int);
 int _historynums(data_t *);
 list_t *_addendnode(list_t **, const char *, int);
 int _deletenode(list_t **, unsigned int);
@@ -143,7 +143,7 @@ char **_ltostr(list_t *);
 size_t _printlist(const list_t *);
 size_t _printslists(const list_t *);
 int _ischain(data_t *, char *, size_t *);
-void _checkchain(data_t *, char *, size_t, size_t);
+void _checkchain(data_t *, char *, size_t *, size_t, size_t);
 int _changechains(data_t *);
 int _changestrings(char **, char *);
 int _alias(data_t *);

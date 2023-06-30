@@ -15,7 +15,7 @@ char *_gethistory(data_t *data)
 		return (NULL);
 	buf[0] = 0;
 	strcpy(buf, dir);
-	strcar(buf, "/");
+	strcat(buf, "/");
 	strcat(buf, "HIstory");
 	return (buf);
 }
@@ -25,7 +25,7 @@ char *_gethistory(data_t *data)
  * @data: data
  * Return: 0
  */
-int _writehistory(dat_t *data)
+int _writehistory(data_t *data)
 {
 	ssize_t fd;
 	char *filename = _gethistory(data);

@@ -45,7 +45,7 @@ int _printd(int input, int fd)
 void _printerr(data_t *data, char *str)
 {
 	_eputs(data->fname);
-	-eputs(": ");
+	_eputs(": ");
 	_printd(data->count, STDERR_FILENO);
 	_eputs(": ");
 	_eputs(data->argv[0]);

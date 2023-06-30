@@ -7,30 +7,29 @@
  */
 int _cd(data_t *data)
 {
-	char *s, dir, buffer[1024];
+	char *s, *dir = NULL, buffer[1024];
 	int x;
-	char *home = _getenv(data, "HOME="), *oldpwd = _getenv(data, "OLDPWD=");
-	char *pwd = _getenv(data, "PWD=");
+	char *home = _getenv(data, "HOME=");
 
 	s = getcwd(buffer, 1024);
 	if (!s)
 		_puts("Error: \n");
-	if (!data->argv[1] || strcmp(dat->argv[1], "~") == 0)
+	if (!data->argv[1] || strcmp(data->argv[1], "~") == 0)
 	{
 		dir = home;
 		if (!dir)
-			x = chdir((dir = pwd) ? dir : "/");
+			x = chdir((dir = _getenv(data, "PWD=")) ? dir : "/");
 		else
 			x = chdir(dir);
 	} else if (strcmp(data->argv[1], "-") == 0)
 	{
-		if (!olpwd)
+		if (!_getenv(data, "OLDPWD="))
 		{
 			_puts(s);
 			_putchar('\n');
 			return (1);
 		}
-		_puts(oldpwd), _putchar('\n');
+		_puts(_getenv(data, "OLDPWD=")), _putchar('\n');
 		x = chdir(dir);
 	} else
 		x = chdir(data->argv[1]);
@@ -40,7 +39,7 @@ int _cd(data_t *data)
 		_eputs(data->argv[1]), _eputchar('\n');
 	} else
 	{
-		_setenv(data, "OLDPWD", pwd);
+		_setenv(data, "OLDPWD", _getenv(data, "PWD="));
 		_setenv(data, "PWD", getcwd(buffer, 1024));
 	}
 	return (0);

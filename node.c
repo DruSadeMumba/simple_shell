@@ -34,7 +34,7 @@ list_t *_nodestart(list_t *node, char *prev, char c)
 	while (node)
 	{
 		p = _firstchar(node->str, prev);
-		if (p && ((c == -1) || (*pp == c)))
+		if (p && ((c == -1) || (*p == c)))
 			return (node);
 		node = node->next;
 	}

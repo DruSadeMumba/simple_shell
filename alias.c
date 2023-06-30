@@ -64,9 +64,9 @@ int _setalias(data_t *data, char *str)
 	if (!p)
 		return (1);
 	if (!*++p)
-		return (unsetalias(data, str));
-	unsetalias(data, str);
-	return (_addendnode(&(dat->alias), str, 0) == NULL);
+		return (_unsetalias(data, str));
+	_unsetalias(data, str);
+	return (_addendnode(&(data->alias), str, 0) == NULL);
 }
 
 /**

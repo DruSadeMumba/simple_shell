@@ -77,34 +77,34 @@ int _changechains(data_t *data)
 		if (data->argv[i][0] != '$' || !data->argv[i][1])
 			continue;
 		if (!strcmp(data->argv[i], "$?"))
-			_changestring(&(data->argv[i]),
+			_changestrings(&(data->argv[i]),
 					strdup(_convertint(data->status, 10, 0)));
 		continue;
 		if (!strcmp(data->argv[i], "$$"))
 		{
-			_changestring(&(data->argv[i]),
+			_changestrings(&(data->argv[i]),
 					strdup(_convertint(getpid(), 10, 0)));
 			continue;
 		}
 		node = _nodestart(data->env, &data->argv[i][1], '=');
 		if (node)
 		{
-			_changestring(&(data->argv[i]),
+			_changestrings(&(data->argv[i]),
 					strdup(strchr(node->str, '=') + 1));
 			continue;
 		}
-		_changestring(&data->argv[i], strdup(""));
+		_changestrings(&data->argv[i], strdup(""));
 	}
 	return (0);
 }
 
 /**
- * _changestring - change
+ * _changestrings - change
  * @old: str
  * @new: new
  * Return: 1
  */
-int _changestring(char **old, char *new)
+int _changestrings(char **old, char *new)
 {
 	free(*old);
 	*old = new;

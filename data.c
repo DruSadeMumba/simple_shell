@@ -22,7 +22,7 @@ void _setdata(data_t *data, char **av)
 	int i;
 
 	data->fname = av[0];
-	if (data->ar)
+	if (data->arg)
 	{
 		data->argv = strtow(data->arg, " \t");
 		if (!data->argv)
@@ -57,7 +57,7 @@ void _freedata(data_t *data, int all)
 		if (!data->cmdbuf)
 			free(data->arg);
 		if (data->env)
-			_freelist(&data(data->env));
+			_freelist(&(data->env));
 		if (data->hist)
 			_freelist(&(data->hist));
 		if (data->alias)
