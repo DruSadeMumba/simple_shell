@@ -12,6 +12,7 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
+#define GET_LINE 0
 extern char **environ;
 
 /**
