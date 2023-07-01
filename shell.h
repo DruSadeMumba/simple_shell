@@ -61,7 +61,7 @@ typedef struct shdata
 	char *fname;
 	list_t *env;
 	list_t *hist;
-	list_t alias;
+	list_t *alias;
 	char **environ;
 	int cenv;
 	int status;
