@@ -9,21 +9,20 @@ int _exithandler(data_t *data)
 {
 	int exitstatus;
 
-	if (strcmp(data->argv[0], "exit") == 0)
+	if (data->argv[1])
 	{
-		if (data->argc > 2)
+		exitstatus = atoi(data->argv[1]);
+		if (exitstatus == -1)
 		{
-			printf("Invalid num of args\n");
-			return (0);
+			data->status = 2;
+			_printerr(data, "Error: ");
+			_eputs(data->argv[1]);
+			_eputchar('\n');
+			return (1);
 		}
-		else if (data->argc == 2)
-		{
-			exitstatus = atoi(data->argv[1]);
-			if (exitstatus == 0 && strcmp(data->argv[1], "0") == 0)
-				exit(exitstatus);
-		}
-		else
-			exit(0);
+		data->errnum = atoi(data->argv[1]);
+		return (-2);
 	}
-	return (0);
+	data->errnum = -1;
+	return (-2);
 }
