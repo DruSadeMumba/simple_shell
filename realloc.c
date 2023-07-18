@@ -26,7 +26,7 @@ void _free(char **pp)
 
 	if (!pp)
 		return;
-	while (*pp++)
+	while (*pp)
 		free(*pp++);
 	free(a);
 }
