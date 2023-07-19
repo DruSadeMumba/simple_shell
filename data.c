@@ -27,7 +27,7 @@ void _setdata(data_t *data, char **av)
 		data->argv = _strtok(data->arg, " \t");
 		if (!data->argv)
 		{
-			data->argv[0] = malloc(sizeof(char *) * 2);
+			data->argv = malloc(sizeof(char *) * 2);
 			if (data->argv)
 			{
 				data->argv[0] = strdup(data->arg);
