@@ -24,7 +24,7 @@ void _setdata(data_t *data, char **av)
 	data->fname = av[0];
 	if (data->arg)
 	{
-		data->argv = strtow(data->arg, " \t");
+		data->argv = _strtok(data->arg, " \t");
 		if (!data->argv)
 		{
 			data->argv[0] = malloc(sizeof(char *) * 2);

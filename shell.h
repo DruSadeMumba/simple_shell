@@ -100,7 +100,7 @@ int _putsfd(char *str, int fd);
 int _eputchar(char);
 int _putchar(char);
 char *_firstchar(const char *, const char *);
-char **strtow(char *, char *);
+char **_strtok(char *, char *);
 void _free(char **);
 int __free(void **);
 void _freelist(list_t **);

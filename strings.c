@@ -66,12 +66,12 @@ int _putchar(char c)
 }
 
 /**
- * strtow - split string
+ * _strtok - split string
  * @str: string
  * @d: char
  * Return: char
  */
-char **strtow(char *str, char *d)
+char **_strtok(char *str, char *d)
 {
 	int i, j, k, m, num = 0;
 	char **s;
