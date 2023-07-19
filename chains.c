@@ -77,9 +77,11 @@ int _changechains(data_t *data)
 		if (data->argv[i][0] != '$' || !data->argv[i][1])
 			continue;
 		if (!strcmp(data->argv[i], "$?"))
+		{
 			_changestrings(&(data->argv[i]),
 					strdup(_convertint(data->status, 10, 0)));
-		continue;
+			continue;
+		}
 		if (!strcmp(data->argv[i], "$$"))
 		{
 			_changestrings(&(data->argv[i]),
