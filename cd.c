@@ -9,7 +9,7 @@ int _cd(data_t *data)
 {
 	char *s, *dir = NULL, buffer[1024];
 	int x;
-	char *home = _getenv(data, "HOME=");
+	char *home = _getenv(data, "HOME="), *oldpwd = _getenv(data, "OLDPWD=");
 
 	s = getcwd(buffer, 1024);
 	if (!s)
@@ -23,14 +23,14 @@ int _cd(data_t *data)
 			x = chdir(dir);
 	} else if (strcmp(data->argv[1], "-") == 0)
 	{
-		if (!_getenv(data, "OLDPWD="))
+		if (!oldpwd)
 		{
 			_puts(s);
 			_putchar('\n');
 			return (1);
 		}
-		_puts(_getenv(data, "OLDPWD=")), _putchar('\n');
-		x = chdir(dir);
+		_puts(oldpwd);
+		x = chdir((dir = oldpwd) ? dir : "/");
 	} else
 		x = chdir(data->argv[1]);
 	if (x == -1)
