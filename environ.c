@@ -42,7 +42,8 @@ int _setsenv(data_t *data)
 {
 	if (data->argc != 3)
 	{
-		_eputs("Error: ");
+		_eputs("Error: Incorrect number of arguements\n");
+		_eputs("Command syntax: setenv VARIABLE VALUE\n");
 		return (1);
 	}
 	if (_setenv(data, data->argv[1], data->argv[2]))
@@ -59,9 +60,10 @@ int _unsetsenv(data_t *data)
 {
 	int i;
 
-	if (data->argc == 1)
+	if (data->argc != 2)
 	{
-		_eputs("Error");
+		_eputs("Error: Incorrect number of arguements\n");
+		_eputs("Command syntax: unsetenv VARIABLE\n");
 		return (1);
 	}
 	for (i = 1; i <= data->argc; i++)
