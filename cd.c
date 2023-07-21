@@ -53,15 +53,16 @@ int _cd(data_t *data)
 int _help(data_t *data)
 {
 	(void)data;
-	printf("**COMMAND**\n"
+	printf("**COMMAND LIST**\n"
+			"alias\n"
 			"cd\n"
-			"ls\n"
-			"exit\n"
 			"env\n"
+			"exit\n"
+			"history\n"
+			"ls\n"
 			"pwd\n"
-			"unsetenv\n"
 			"setenv\n"
-			"history\n");
+			"unsetenv\n");
 	return (0);
 }
 
