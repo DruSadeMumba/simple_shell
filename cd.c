@@ -26,7 +26,7 @@ int _cd(data_t *data)
 		if (!oldpwd)
 		{
 			_puts(s);
-			_putchar('\n');
+			putchar('\n');
 			return (1);
 		}
 		_puts(oldpwd);
