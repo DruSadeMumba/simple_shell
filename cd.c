@@ -30,6 +30,7 @@ int _cd(data_t *data)
 			return (1);
 		}
 		_puts(oldpwd);
+		putchar('\n');
 		x = chdir((dir = oldpwd) ? dir : "/");
 	} else
 		x = chdir(data->argv[1]);
