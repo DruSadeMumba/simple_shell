@@ -7,7 +7,7 @@
  */
 int _cd(data_t *data)
 {
-	char *s, *dir = NULL, buffer[1024];
+	char *s, *dir, buffer[1024];
 	int x;
 	char *home = _getenv(data, "HOME="), *oldpwd = _getenv(data, "OLDPWD=");
 
@@ -30,7 +30,7 @@ int _cd(data_t *data)
 			return (1);
 		}
 		_puts(oldpwd);
-		putchar('\n');
+		_putchar('\n');
 		x = chdir((dir = oldpwd) ? dir : "/");
 	} else
 		x = chdir(data->argv[1]);
