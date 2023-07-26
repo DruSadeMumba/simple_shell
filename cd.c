@@ -7,7 +7,7 @@
  */
 int _cd(data_t *data)
 {
-	char *s, *dir, buffer[1024];
+	char *s, *dir = NULL, buffer[1024];
 	int x;
 	char *home = _getenv(data, "HOME="), *oldpwd = _getenv(data, "OLDPWD=");
 
