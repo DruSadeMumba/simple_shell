@@ -30,7 +30,7 @@ int _cd(data_t *data)
 			return (1);
 		}
 		_puts(oldpwd);
-		_putchar('\n');
+		putchar('\n');
 		x = chdir((dir = oldpwd) ? dir : "/");
 	} else
 		x = chdir(data->argv[1]);
@@ -41,7 +41,7 @@ int _cd(data_t *data)
 	} else
 	{
 		_setenv(data, "OLDPWD", _getenv(data, "PWD="));
-		_setenv(data, "PWD", getcwd(buffer, 1024));
+		_setenv(data, "PWD", s);
 	}
 	return (0);
 }
