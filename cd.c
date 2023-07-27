@@ -13,7 +13,7 @@ int _cd(data_t *data)
 
 	s = getcwd(buffer, 1024);
 	if (!s)
-		_puts("Error: \n");
+		_puts("Error \n");
 	if (!data->argv[1] || strcmp(data->argv[1], "~") == 0)
 	{
 		dir = home;
@@ -36,7 +36,7 @@ int _cd(data_t *data)
 		x = chdir(data->argv[1]);
 	if (x == -1)
 	{
-		_printerr(data, "Error: ");
+		_printerr(data, "can't cd to ");
 		_eputs(data->argv[1]), _eputchar('\n');
 	} else
 	{
