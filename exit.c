@@ -12,15 +12,10 @@ int _exithandler(data_t *data)
 	if (data->argv[1])
 	{
 		exitstatus = atoi(data->argv[1]);
-		if (exitstatus == 0 && strcmp(data->argv[1], "0") != 0)
-		{
-			printf("Invalid input: enter  int\n");
-			return (0);
-		}
-		else if (exitstatus == -1)
+		if (exitstatus == -1 || (exitstatus == 0 && strcmp(data->argv[1], "0") != 0))
 		{
 			data->status = 2;
-			_printerr(data, "Error: ");
+			_printerr(data, "Illegal number: ");
 			_eputs(data->argv[1]);
 			_eputchar('\n');
 			return (1);
