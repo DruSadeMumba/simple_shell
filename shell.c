@@ -50,7 +50,7 @@ void _forkcmd(data_t *data)
 	child_pid = fork();
 	if (child_pid == -1)
 	{
-		perror("Error 1");
+		perror("Input err msg");
 		return;
 	}
 	if (child_pid == 0)
@@ -70,7 +70,7 @@ void _forkcmd(data_t *data)
 		{
 			data->status = WEXITSTATUS(data->status);
 			if (data->status == 126)
-				_printerr(data, "Error 2\n");
+				_printerr(data, "not found\n");
 		}
 	}
 }

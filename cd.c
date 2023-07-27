@@ -13,7 +13,7 @@ int _cd(data_t *data)
 
 	s = getcwd(buffer, 1024);
 	if (!s)
-		_puts("Error 3\n");
+		_puts("no dir\n");
 	if (!data->argv[1] || strcmp(data->argv[1], "~") == 0)
 	{
 		dir = home;
