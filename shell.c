@@ -50,7 +50,7 @@ void _forkcmd(data_t *data)
 	child_pid = fork();
 	if (child_pid == -1)
 	{
-		perror("not found");
+		perror("Error 1");
 		return;
 	}
 	if (child_pid == 0)
@@ -110,7 +110,7 @@ void _findcmd(data_t *data)
 		else if (*(data->arg) != '\n')
 		{
 			data->status = 127;
-			_printerr(data, "Error\n");
+			_printerr(data, "not found\n");
 		}
 	}
 }
