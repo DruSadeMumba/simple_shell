@@ -1,6 +1,7 @@
 #ifndef SHELL_H
 #define SHELL_H
 
+#include <ctype.h>
 #include <errno.h>
 #include <fcntl.h>
 #include <limits.h>
@@ -100,6 +101,7 @@ int _putsfd(char *str, int fd);
 int _eputchar(char);
 int _putchar(char);
 char *_firstchar(const char *, const char *);
+char _firstchars(const char *str);
 char **_strtok(char *, char *);
 void _free(char **);
 int __free(void **);
