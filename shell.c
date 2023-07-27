@@ -50,7 +50,7 @@ void _forkcmd(data_t *data)
 	child_pid = fork();
 	if (child_pid == -1)
 	{
-		perror("Input err msg");
+		perror("not found\n");
 		return;
 	}
 	if (child_pid == 0)
