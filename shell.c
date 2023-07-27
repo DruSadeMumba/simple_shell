@@ -70,7 +70,7 @@ void _forkcmd(data_t *data)
 		{
 			data->status = WEXITSTATUS(data->status);
 			if (data->status == 126)
-				_printerr(data, "Error\n");
+				_printerr(data, "Error 2\n");
 		}
 	}
 }
